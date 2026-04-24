@@ -21,3 +21,8 @@ const newCustomer = new Customer({
 newCustomer.save()
   .then(() => console.log("Customer saved"))
   .catch(err => console.log(err));
+
+//find all customers
+Customer.find()
+  .then(customers => console.log(customers))
+  .catch(err => console.log(err));
