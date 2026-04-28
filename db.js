@@ -26,3 +26,4 @@ newCustomer.save()
 Customer.find()
   .then(customers => console.log(customers))
   .catch(err => console.log(err));
+
