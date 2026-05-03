@@ -55,3 +55,7 @@ function sayGoodbye(){
 }
 
 console.log(greet("Fatimah", sayGoodbye));
+
+alert("Welcome to JavaScript!");
+confirm("Do you want to continue?");
+let userInput = prompt("Please enter your name:");
