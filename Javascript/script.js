@@ -59,3 +59,23 @@ console.log(greet("Fatimah", sayGoodbye));
 alert("Welcome to JavaScript!");
 confirm("Do you want to continue?");
 let userInput = prompt("Please enter your name:");
+
+//OOP
+//1.Object literals
+const Person = {
+    name: "Jessica",
+    age: 30,
+    greet:function() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    }
+};
+Person.greet();
+//2.Constructor functions
+function Person(name, age) {
+    name = this.name;
+    age = this.age;
+}
+const person1 = new Person("Jessica", 30);
+const person2 = new Person("Michael", 25);
+console.log(person1.name);
+console.log(person2.age);
