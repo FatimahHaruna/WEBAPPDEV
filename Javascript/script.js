@@ -44,3 +44,14 @@ function sum(...numbers) {
     return numbers.reduce((acc, curr) => acc + curr, 0);
 }
 console.log(`The sum of 1, 2, and 3 is: ${sum(1, 2, 3)}`);
+
+//callback function
+function greet(name, callback) {
+    console.log(`Hello, ${name}!`);
+    callback();
+}
+function sayGoodbye(){
+    console.log(`Goodbye ${name}!`);
+}
+
+console.log(greet("Fatimah", sayGoodbye));
