@@ -27,3 +27,20 @@ const person = {
 };
 const {name, email} = person;
 document.getElementById("objectdestructuring").innerHTML = `My email address is ${email}`;
+
+//spread operators
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const arr = [...arr1, ...arr2];
+document.getElementById("spread").innerHTML = `Combined array: ${arr}`;
+
+const obj1 = {a: 1, b: 2};
+const obj2 = {c: 3, d: 4};
+const obj = {...obj1, ...obj2};
+document.getElementById("objectspread").innerHTML = `Combined object: ${JSON.stringify(obj)}`;
+
+//rest operators
+function sum(...numbers) {
+    return numbers.reduce((acc, curr) => acc + curr, 0);
+}
+console.log(`The sum of 1, 2, and 3 is: ${sum(1, 2, 3)}`);
