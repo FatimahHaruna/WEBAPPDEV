@@ -33,7 +33,7 @@ num.forEach(num => {
     console.log(num);
 });
 //map(), filter(), reduce(), find(), 
-num1 = [1,2,3,4,5,6,7,,9,10];
+num1 = [1,2,3,4,5,6,7,8,9,10];
 const newnum1 = num.map(num => num * 2);
 console.log(newnum1);
 num2 = [1,2,3,4,5,6,7,8,9,10];
@@ -42,6 +42,7 @@ console.log(even);
 num3 = [1,2,3,4,5,6,7,8,9,10];
 const total = num3.reduce((acc, cur) => acc + curr, 0);
 console.log(total);
+
 num4 = [1,2,3,4,5,6,7,8,9,10];
 const found = num4.find(num => num > 5);
 console.log(found);
@@ -88,11 +89,11 @@ const Person = {
 };
 Person.greet();
 //2.Constructor functions
-function Person(name, age) {
+function Personn(name, age) {
     name = this.name;
     age = this.age;
 }
-const person1 = new Person("Jessica", 30);
-const person2 = new Person("Michael", 25);
+const person1 = new Personn("Jessica", 30);
+const person2 = new Personn("Michael", 25);
 console.log(person1.name);
-console.log(person2.age);
+console.log(person2.age); 
