@@ -27,7 +27,24 @@ const person = {
 };
 const {name, email} = person;
 document.getElementById("objectdestructuring").innerHTML = `My email address is ${email}`;
-
+//forEach()
+num = [1,2,3,4,5,6,7,,9,10];
+num.forEach(num => {
+    console.log(num);
+});
+//map(), filter(), reduce(), find(), 
+num1 = [1,2,3,4,5,6,7,,9,10];
+const newnum1 = num.map(num => num * 2);
+console.log(newnum1);
+num2 = [1,2,3,4,5,6,7,8,9,10];
+const even = num2.filter(num => num % 2 === 0);
+console.log(even);
+num3 = [1,2,3,4,5,6,7,8,9,10];
+const total = num3.reduce((acc, cur) => acc + curr, 0);
+console.log(total);
+num4 = [1,2,3,4,5,6,7,8,9,10];
+const found = num4.find(num => num > 5);
+console.log(found);
 //spread operators
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
