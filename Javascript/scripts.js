@@ -158,25 +158,23 @@ Promise.all([fetchUserData(userId), fetchUserPosts(userId)])
 .catch((error) => {
     console.error("Error:", error);
 });
-// //Async/Await
-// function fetchData() {
-//     return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             resolve("Data loaded");
-//         }, 2000);
-//     });
-// }
-// async function getData() {
-//     const result = await fetchData();
-//     console.log(result);
-// }
-// getData();
-// //error handling
-// async function getData() {
-//     try {
-//         const result = await fetchData();
-//         console.log(result);
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }
+//Async/Await
+//Async function returns a promise
+async function getUser(id) {
+    const response = await fetchUser(id);
+    return response;
+}
+//calling the async function
+getUser(1)
+.then((user) => {
+    console.log(user);
+})
+//handling errors with try/catch
+async function processUser(id) { 
+  try { 
+    const user = await fetchUser(id); // Wait for user 
+    console.log(`Processing ${user.name}`); 
+  } catch (error) { 
+    console.log("Error:", error); 
+  } 
+} 
