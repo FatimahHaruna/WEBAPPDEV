@@ -51,6 +51,29 @@ promise
 .finally(() => {
     console.log("Operation completed.");
 });
+//promise all - used to handle multiple promises concurrently
+const promise1 = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve("Promise 1 resolved");
+    }, 1000);
+});
+const promise2 = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve("Promise 2 resolved");
+    }, 1500);
+});
+const promise3 = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve("Promise 3 resolved");
+    }, 2000);
+});
+Promise.all([promise1, promise2, promise3])
+.then((results) => {
+    console.log(results);
+})
+.catch((error) => {
+    console.error("Error:", error);
+});
 
 //Taking a function that uses a callback and converting it to return a promise
 //Callback version
@@ -86,8 +109,8 @@ getData()
 function fetchUser(id) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            if(id === 1) {
-                resolve({id: 1, name: "Fatimah"});
+            if(id > 0) {
+                resolve({id: id, name: "Fatimah"});
             } else {
                 reject("User not found");
             }
@@ -97,6 +120,15 @@ function fetchUser(id) {
 fetchUser(1)
 .then((user) => {
     console.log(user);
+})
+.catch((error) => {
+    console.error("Error:", error);
+});
+const promise1 = fetchUser(2);
+const promise2 = fetchUser(3);
+Promise.all([promise1, promise2])
+.then((users) => {
+    console.log(users); 
 })
 .catch((error) => {
     console.error("Error:", error);
