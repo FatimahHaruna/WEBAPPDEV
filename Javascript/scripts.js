@@ -133,6 +133,31 @@ Promise.all([promise1, promise2])
 .catch((error) => {
     console.error("Error:", error);
 });
+
+//using promise all to to fire two network requests concurrently and combine their results
+function fetchUserData(userId) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({userId: userId, name: "Fatimah"});
+        }, 1000);
+    });
+}
+function fetchUserPosts(userId) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve([{postId: 1, content: "Post 1"}, {postId: 2, content: "Post 2"}]);
+        }, 1500);
+    });
+}
+const userId = 1;
+Promise.all([fetchUserData(userId), fetchUserPosts(userId)])
+.then(([userData, userPosts]) => {
+    console.log("User Data:", userData);
+    console.log("User Posts:", userPosts);
+})
+.catch((error) => {
+    console.error("Error:", error);
+});
 // //Async/Await
 // function fetchData() {
 //     return new Promise((resolve, reject) => {
