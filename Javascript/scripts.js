@@ -82,6 +82,25 @@ getData()
 .finally(() => {
     console.log("Data fetching completed.");
 })
+
+function fetchUser(id) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if(id === 1) {
+                resolve({id: 1, name: "Fatimah"});
+            } else {
+                reject("User not found");
+            }
+        }, 1000);
+    }); 
+}
+fetchUser(1)
+.then((user) => {
+    console.log(user);
+})
+.catch((error) => {
+    console.error("Error:", error);
+});
 // //Async/Await
 // function fetchData() {
 //     return new Promise((resolve, reject) => {
