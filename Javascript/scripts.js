@@ -30,38 +30,77 @@ function greetUser(callback) {
 greetUser(greet)
 
 //Promises
-const promise = new Promise((resolve, reject) => {
-    const success = true;
-    if(success){
-        resolve("Successful");
-    }
-    else{        
-        reject("Failed");
-    }
-}) 
+const promise = new Promise((resolve, reject) =>{
+    setTimeout(() => {
+        const success = true;
+        if(success) {
+            resolve("Operation successful!");
+        }
+        else {
+            reject("Operation failed!");
+        }
+    }, 1000);
+});
+promise
+.then((result) => {
+    console.log(result);
+})
+.catch((error) => {
+    console.error(error);
+})
+.finally(() => {
+    console.log("Operation completed.");
+});
 
-.then(result => console.log(result))
-.catch(error => console.error(error));
-
-//Async/Await
-function fetchData() {
+//Taking a function that uses a callback and converting it to return a promise
+//Callback version
+function getData(callback) {
+    setTimout(() => {
+        const data = {name: "Fatimah", age: 19};
+        callback(data);
+    }, 1000);
+}
+getData((data) => {
+    console.log(data);
+});
+//Promise version
+function getData() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve("Data loaded");
-        }, 2000);
+            const data = {name: "Fatimah", age: 19};
+            resolve(data);
+        }, 1000);
     });
 }
-async function getData() {
-    const result = await fetchData();
-    console.log(result);
-}
-getData();
-//error handling
-async function getData() {
-    try {
-        const result = await fetchData();
-        console.log(result);
-    } catch (error) {
-        console.error(error);
-    }
-}
+getData()
+.then((data) => {
+    console.log(data);
+})
+.catch((error) => {
+    console.error(error);
+})
+.finally(() => {
+    console.log("Data fetching completed.");
+})
+// //Async/Await
+// function fetchData() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("Data loaded");
+//         }, 2000);
+//     });
+// }
+// async function getData() {
+//     const result = await fetchData();
+//     console.log(result);
+// }
+// getData();
+// //error handling
+// async function getData() {
+//     try {
+//         const result = await fetchData();
+//         console.log(result);
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
