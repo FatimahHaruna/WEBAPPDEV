@@ -6,3 +6,14 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, 'localhost',() => {
     console.log(`Server running at http://localhost${PORT}\n`)
 });
+
+//write asynchronous file reading using fs.readFile with an error handling callback
+const fs = require('fs');
+fs.readFile('example.txt', 'utf8', (err, data) => {
+    if (err) {
+        console.error("Error reading file:", err);
+        return;
+    }  
+    console.log("File contents:", data);
+});
+
